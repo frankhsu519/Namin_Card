@@ -1,20 +1,14 @@
 $(function(){
-
-    // 隨機抽取圖片數字
-        var tmp_arr = []
-        var rander_img_arr =[]
-        for(let i= 0 ; tmp_arr.length < 8 ; i++){
-            let rander_math = Math.floor((Math.random()*12)+1)
-            if(!tmp_arr.includes(rander_math)){
-                tmp_arr.push(rander_math)
-                rander_img_arr.push(
-                    {   
-                        name:`namin-0${rander_math}`,
-                        img:`../data_img/${rander_math}.png`,                  
-                    }
-                )
-            }
+    // 抽取 dataAarry 
+    var tmp_arr = []
+    var rander_img_arr =[]
+    for(let i= 0 ; tmp_arr.length < 8 ; i++){
+        let rander_math = Math.floor((Math.random()*12)+1)
+        if(!tmp_arr.includes(rander_math)){
+            tmp_arr.push(rander_math)
+            rander_img_arr.push(data[rander_math])
         }
+    }
 
     // 讓圖片成對,不影響原始資料陣列
     var concat_arr = rander_img_arr.concat(rander_img_arr).sort(function (){
@@ -24,7 +18,7 @@ $(function(){
     // render  Card
     var html_str =''
     for(let i = 0 ; i < concat_arr.length ; i++){
-        html_str +=`<div class="card-container" data-name=${concat_arr[i].name}> 
+        html_str +=`<div class="card-container" data-id=${concat_arr[i].id}> 
                         <div class="cover">
                             cover
                         </div>
@@ -59,10 +53,7 @@ $(function(){
 
     // 卡片配對驗證
     $('.card-container').click(function(event){
-        // console.log($(this));
-        console.log($(this).data('name'));//抓取 data-name
-        // var cover = $(this.children[0]);
-        // var back = $(this.children[1]);  
+        console.log($(this).data('id'));//抓取 data-id
 
         if(count < 2){
             count++;
@@ -71,7 +62,7 @@ $(function(){
                     alert('此牌卡已被翻開了');
                     count--;
                 }else{
-                    first_guess = $(this).data('name')
+                    first_guess = $(this).data('id')
                 }
             }
             else{
@@ -79,7 +70,7 @@ $(function(){
                     alert('不可以重複點擊');
                     count--;
                 }else{
-                    second_guess = $(this).data('name')
+                    second_guess = $(this).data('id')
                 }
             }
             $(this).addClass('Selected')
@@ -87,10 +78,10 @@ $(function(){
             if( first_guess!='' && second_guess!=''){
                 if(first_guess === second_guess){
                     console.log('成功');
-                    var video_name = first_guess.split('-')[1]
-                    console.log('要撥的影片',video_name);
+                    var video_id = first_guess
+                    console.log('要撥的影片',video_id);
                     setTimeout(match, delay)
-                    call_video(video_name)
+                    call_video(video_id)
                 }else{
                     console.log('失敗');
                 }
@@ -105,11 +96,13 @@ $(function(){
     })
 })
 
-function call_video(video_name){
-    var video_str=`${window.location.origin}/video/${video_name}.mp4`;
-    console.log(video_str);
-
-    var title_name = change_titleName(video_name)
+function call_video(video_id){
+    for(let i = 0 ; i < data.length ; i++){
+        if(data[i].id == video_id){
+            var video_str = data[i].video;
+        }
+    }
+    var title_name = data[video_id].title
 
     $('#video_title').text(title_name);
     $('.modal-body').html(`<video class="video-fluid z-depth-1" controls="controls" autoplay="autoplay" muted="" id="video_block" style='width:100%' preload="auto">
@@ -130,48 +123,5 @@ function check_loading(){
     }
     else{
         setTimeout(check_loading ,100)
-    }
-}
-
-function change_titleName (video_name) {
-    switch (video_name){
-        case '01':
-            return "168 !! i'm 168 ";
-            break;
-        case '02':
-            return "啾 啾 啾 ";
-            break;
-        case '03':
-            return "Kisses ";
-            break;
-        case '04':
-            return "Kiyomi ";
-            break;
-        case '05':
-            return "Sakura ";
-            break;                
-        case '06':
-            return "Thank you Donate ";
-            break; 
-        case '07':
-            return "我不知道歌名";
-            break; 
-        case '08':
-            return "gugugaga ";
-            break; 
-        case '09':
-            return "Namin Kitty ";
-            break; 
-        case '010':
-            return "Nico Nico ";
-            break; 
-        case '011':
-            return "Ottok ";
-            break;         
-        case '012':
-            return "Yum Yum Song ";
-            break;
-        default:
-        return "哈囉 ";
     }
 }
