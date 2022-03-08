@@ -76,5 +76,35 @@ var data =[
         title:"Yum Yum Song ",
         img:"../data_img/12.png",
         video:`${window.location.origin}/video/012.mp4`
-    },   
+    },
+    {
+        id:13,
+        title:"5R 5R 5R  ",
+        img:"../data_img/5R5R5R.png",
+        video:`${window.location.origin}/video/5R5R5R.mp4`
+    }, 
+    {
+        id:14,
+        title:"goldfish ",
+        img:"../data_img/goldfish.png",
+        video:`${window.location.origin}/video/goldfish.mp4`
+    }, 
+    {
+        id:15,
+        title:"kiss_wink ",
+        img:"../data_img/kiss_wink.png",
+        video:`${window.location.origin}/video/kiss_wink.mp4`
+    }, 
+    {
+        id:16,
+        title:"成為我的左手 ",
+        img:"../data_img/成為我的左手.png",
+        video:`${window.location.origin}/video/成為我的左手.mp4`
+    },
+    {
+        id:17,
+        title:"teemo ",
+        img:"../data_img/teemo.png",
+        video:`${window.location.origin}/video/teemo.mp4`
+    },     
 ]

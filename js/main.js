@@ -3,7 +3,7 @@ $(function(){
     var tmp_arr = []
     var rander_img_arr =[]
     for(let i= 0 ; tmp_arr.length < 8 ; i++){
-        let rander_math = Math.floor((Math.random()*12)+1)
+        let rander_math = Math.floor((Math.random()*17)+1)
         if(!tmp_arr.includes(rander_math)){
             tmp_arr.push(rander_math)
             rander_img_arr.push(data[rander_math])
@@ -35,7 +35,7 @@ $(function(){
 
     var first_guess='';
     var second_guess='';
-    var delay = 1000;
+    var delay = 2000;
 
     var resetGuesses = function resetGuesses() {
         first_guess = "";
@@ -84,6 +84,8 @@ $(function(){
                     call_video(video_id)
                 }else{
                     console.log('失敗');
+                    $('#Match_fail').prop('muted',false)
+                    $('#Match_fail')[0].play();
                 }
                 setTimeout(resetGuesses, delay)
             }
