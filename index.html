@@ -32,6 +32,8 @@
         /* background-image: linear-gradient( 109.5deg,  rgba(229,233,177,1) 11.2%, rgba(223,205,187,1) 100.2% ); */
         /* background-image: radial-gradient( circle 400px at 6.8% 8.3%,  rgba(255,244,169,1) 0%, rgba(255,244,234,1) 100.2% ); */
         background-color: #FEEECC;
+
+        position: relative;
     }
 
     .card-container{
@@ -91,6 +93,16 @@
     #show_video {
         padding-right: 0 !important;
     }
+    .hide{
+        display: none;
+    }
+    .punch{
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 999;
+    }
 
     @media (min-width: 576px){
         .modal-dialog {
@@ -102,8 +114,11 @@
 
 <body>
     <audio id="Match_fail" autoplay="autoplay" muted="" playsinline>
-        <source src="./video/Are_U_serious.mp3" type="audio/mp3" />
+        <source src="./video/Ur_fail.mp3" type="audio/mp3" />
     </audio>
+    <div class="punch hide">
+        <img src="./data_img/0.png" alt="">
+    </div>
 </body>
 <div class="modal fade" id="show_video" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog modal-dialog-centered" role="document">

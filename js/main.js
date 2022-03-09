@@ -32,10 +32,26 @@ $(function(){
 
     // 初始狀態
     var count = 0;
-
     var first_guess='';
     var second_guess='';
     var delay = 2000;
+
+    // 音樂狀態
+    var audio = $('#Match_fail')
+    // console.log(audio[0].readyState);
+    get_duration(audio);
+    function get_duration(audio){
+        var if_ready = audio[0].readyState == 4?true:false;
+        if (if_ready){
+            // return audio[0].duration
+            console.log('別鬧',audio[0].duration);
+        } else {
+            setTimeout(function(){
+                get_duration(audio)
+            },0)
+
+        }
+    }
 
     var resetGuesses = function resetGuesses() {
         first_guess = "";
@@ -84,8 +100,7 @@ $(function(){
                     call_video(video_id)
                 }else{
                     console.log('失敗');
-                    $('#Match_fail').prop('muted',false)
-                    $('#Match_fail')[0].play();
+                    call_fail_audio()
                 }
                 setTimeout(resetGuesses, delay)
             }
@@ -126,4 +141,17 @@ function check_loading(){
     else{
         setTimeout(check_loading ,100)
     }
+}
+
+function call_fail_audio(){
+    $('.punch').removeClass('hide')
+    var audio = $('#Match_fail')
+    var duration =  audio[0].duration
+    audio.prop('muted',false)
+    audio[0].play();
+    setTimeout(remove_punch,duration*1000)
+}
+
+function remove_punch(){
+    $('.punch').addClass('hide')
 }
