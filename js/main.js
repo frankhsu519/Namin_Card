@@ -34,24 +34,7 @@ $(function(){
     var count = 0;
     var first_guess='';
     var second_guess='';
-    var delay = 2000;
-
-    // 音樂狀態
-    var audio = $('#Match_fail')
-    // console.log(audio[0].readyState);
-    get_duration(audio);
-    function get_duration(audio){
-        var if_ready = audio[0].readyState == 4?true:false;
-        if (if_ready){
-            // return audio[0].duration
-            console.log('別鬧',audio[0].duration);
-        } else {
-            setTimeout(function(){
-                get_duration(audio)
-            },0)
-
-        }
-    }
+    window.delay = 2000;
 
     var resetGuesses = function resetGuesses() {
         first_guess = "";
@@ -100,9 +83,14 @@ $(function(){
                     call_video(video_id)
                 }else{
                     console.log('失敗');
-                    call_fail_audio()
+                    call_fail_audio();
+                    //取得音樂時間
+                    var audio = $('#Match_fail');
+                    get_duration(audio);
                 }
-                setTimeout(resetGuesses, delay)
+                setTimeout(function(){
+                    resetGuesses();
+                }, window.delay)
             }
         }
     })
@@ -145,7 +133,7 @@ function check_loading(){
 
 function call_fail_audio(){
     $('.punch').removeClass('hide')
-    var audio = $('#Match_fail')
+    var audio = $('#Match_fail');
     var duration =  audio[0].duration
     audio.prop('muted',false)
     audio[0].play();
@@ -154,4 +142,15 @@ function call_fail_audio(){
 
 function remove_punch(){
     $('.punch').addClass('hide')
+}
+
+function get_duration(audio){
+    var if_ready = audio[0].readyState == 4?true:false;
+    if (if_ready){
+        window.delay = audio[0].duration*1000;
+    } else {
+        setTimeout(function(){
+            return get_duration(audio);
+        },0)
+    }
 }
