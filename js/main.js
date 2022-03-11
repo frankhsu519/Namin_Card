@@ -35,6 +35,7 @@ $(function(){
     var first_guess='';
     var second_guess='';
     window.delay = 2000;
+    window.fail_dalay = 2000;
 
     var resetGuesses = function resetGuesses() {
         first_guess = "";
@@ -79,8 +80,13 @@ $(function(){
                     console.log('成功');
                     var video_id = first_guess
                     console.log('要撥的影片',video_id);
-                    setTimeout(match, delay)
+                    match();
                     call_video(video_id)
+
+                    setTimeout(function(){
+                        resetGuesses();
+                    }, window.delay)
+
                 }else{
                     console.log('失敗');
 
@@ -88,10 +94,11 @@ $(function(){
                     var audio = $('#Match_fail');
                     get_duration(audio);
                     call_fail_audio(audio);
+                    
+                    setTimeout(function(){
+                        resetGuesses();
+                    }, window.fail_dalay)
                 }
-                setTimeout(function(){
-                    resetGuesses();
-                }, window.delay)
             }
         }
     })
@@ -147,7 +154,7 @@ function remove_punch(){
 function get_duration(audio){
     var if_ready = audio[0].readyState == 4?true:false;
     if (if_ready){
-        window.delay = audio[0].duration*1000;
+        window.fail_dalay = audio[0].duration*1000;
     } else {
         setTimeout(function(){
             return get_duration(audio);
