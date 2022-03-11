@@ -37,13 +37,15 @@ $(function(){
     window.delay = 2000;
     window.fail_dalay = 2000;
 
-    var resetGuesses = function resetGuesses() {
-        first_guess = "";
-        second_guess = "";
-        count = 0;
-    
-        var selected = $(".Selected").not('.match');
+    window.resetGuesses = function resetGuesses(delay) {
+        setTimeout(function(){
+            first_guess = "";
+            second_guess = "";
+            count = 0;
+        
+            var selected = $(".Selected").not('.match');
             selected.removeClass('Selected')
+        }, delay)
     };
 
     var match = function match() {
@@ -90,14 +92,12 @@ $(function(){
                 }else{
                     console.log('失敗');
 
+                    // 隨機fail_data
+                    random_fail_audio()
+
                     //取得音樂資訊
                     var audio = $('#Match_fail');
                     get_duration(audio);
-                    call_fail_audio(audio);
-                    
-                    setTimeout(function(){
-                        resetGuesses();
-                    }, window.fail_dalay)
                 }
             }
         }
@@ -109,6 +109,7 @@ $(function(){
     })
 })
 
+// 呼叫成功影片
 function call_video(video_id){
     for(let i = 0 ; i < data.length ; i++){
         if(data[i].id == video_id){
@@ -128,6 +129,7 @@ function call_video(video_id){
     check_loading()
 }
 
+// 確認成功影片loading
 function check_loading(){
     if ( $('#video_block')[0].readyState === 4 ) {        
         setTimeout(function(){
@@ -138,7 +140,7 @@ function check_loading(){
         setTimeout(check_loading ,100)
     }
 }
-
+// 呼叫失敗影片& 顯示失敗圖片
 function call_fail_audio(audio){
     $('.punch').removeClass('hide')
     var duration =  audio[0].duration
@@ -147,17 +149,40 @@ function call_fail_audio(audio){
     setTimeout(remove_punch,duration*1000)
 }
 
+// 移除 失敗圖片
 function remove_punch(){
     $('.punch').addClass('hide')
 }
 
+// 抓取失敗影片長度 
 function get_duration(audio){
     var if_ready = audio[0].readyState == 4?true:false;
     if (if_ready){
         window.fail_dalay = audio[0].duration*1000;
+        call_fail_audio(audio);
+        setTimeout(function(){
+            resetGuesses();
+        }, window.fail_dalay)
     } else {
         setTimeout(function(){
             return get_duration(audio);
         },0)
     }
+}
+
+// 隨機 fail_data
+function random_fail_audio(){
+    
+    var random_num = Math.floor((Math.random()*(fail_data.length)))
+    var fail_audio = fail_data[random_num].audio
+    var fail_img = fail_data[random_num].img
+    var fail_audio_str = `
+                        <audio id="Match_fail" preload="auto" autoplay="autoplay" muted="" playsinline>
+                            <source src="${fail_audio}" type="audio/mp3" />
+                        </audio>
+                        <div class="punch hide">
+                            <img src="${fail_img}" alt="">
+                        </div>
+                        `
+    $(".match_fail_block").html(fail_audio_str);
 }
