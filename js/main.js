@@ -83,10 +83,11 @@ $(function(){
                     call_video(video_id)
                 }else{
                     console.log('失敗');
-                    call_fail_audio();
-                    //取得音樂時間
+
+                    //取得音樂資訊
                     var audio = $('#Match_fail');
                     get_duration(audio);
+                    call_fail_audio(audio);
                 }
                 setTimeout(function(){
                     resetGuesses();
@@ -131,9 +132,8 @@ function check_loading(){
     }
 }
 
-function call_fail_audio(){
+function call_fail_audio(audio){
     $('.punch').removeClass('hide')
-    var audio = $('#Match_fail');
     var duration =  audio[0].duration
     audio.prop('muted',false)
     audio[0].play();

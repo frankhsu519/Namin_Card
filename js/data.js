@@ -108,3 +108,25 @@ var data =[
         video:`${window.location.origin}/video/teemo.mp4`
     },     
 ]
+
+
+var fail_data = [
+    {      
+        id:0,
+        title:"我喜歡你 ",
+        img:"../data_img/punch_long.gif",
+        audio:`${window.location.origin}/video/我喜歡你.mp3` 
+    },
+    {      
+        id:1,
+        title:"punch ",
+        img:"../data_img/punch.gif",
+        audio:`${window.location.origin}/video/Are_U_serious.mp3` 
+    },
+    {      
+        id:2,
+        title:"Ur_fail ",
+        img:"../data_img/hit.gif",
+        audio:`${window.location.origin}/video/Ur_fail.mp3` 
+    },
+]
