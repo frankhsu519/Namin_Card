@@ -143,8 +143,20 @@ var fail_data = [
     },
     {      
         id:5,
-        title:"w_honey_punch ",
-        img:"../data_img/w_honey_punch.gif",
-        audio:`${window.location.origin}/video/Are_U_serious.mp3` 
+        title:"r_hit ",
+        img:"../data_img/r_hit.gif",
+        audio:`${window.location.origin}/video/Produce.m4a` 
+    },
+    {      
+        id:6,
+        title:"r_heavy_punch ",
+        img:"../data_img/r_heavy_punch.gif",
+        audio:`${window.location.origin}/video/Ur_fail.mp3` 
+    },
+    {      
+        id:7,
+        title:"r_honey_punch ",
+        img:"../data_img/r_honey_punch.gif",
+        audio:`${window.location.origin}/video/Produce.m4a` 
     },
 ]
