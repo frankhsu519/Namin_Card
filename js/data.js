@@ -129,4 +129,22 @@ var fail_data = [
         img:"../data_img/hit.gif",
         audio:`${window.location.origin}/video/Ur_fail.mp3` 
     },
+    {      
+        id:3,
+        title:"w_comfort ",
+        img:"../data_img/w_comfort.gif",
+        audio:`${window.location.origin}/video/Are_U_serious.mp3` 
+    },
+    {      
+        id:4,
+        title:"w_heavy_punch ",
+        img:"../data_img/w_heavy_punch.gif",
+        audio:`${window.location.origin}/video/Are_U_serious.mp3` 
+    },
+    {      
+        id:5,
+        title:"w_honey_punch ",
+        img:"../data_img/w_honey_punch.gif",
+        audio:`${window.location.origin}/video/Are_U_serious.mp3` 
+    },
 ]
