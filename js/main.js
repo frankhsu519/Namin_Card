@@ -3,7 +3,7 @@ $(function(){
     var tmp_arr = []
     var rander_img_arr =[]
     for(let i= 0 ; tmp_arr.length < 8 ; i++){
-        let rander_math = Math.floor((Math.random()*17)+1)
+        let rander_math = Math.floor((Math.random()*( data.length - 1 ))+1)
         if(!tmp_arr.includes(rander_math)){
             tmp_arr.push(rander_math)
             rander_img_arr.push(data[rander_math])
@@ -23,7 +23,7 @@ $(function(){
                             cover
                         </div>
                         <div class="back">
-                            <img src="${concat_arr[i].img}" alt="" style="border-radius: .4rem;">
+                            <img src="${concat_arr[i].img}" alt="" style="border-radius: .4rem; max-width:100%;">
                         </div>
                     </div>  
                     `
@@ -105,6 +105,7 @@ $(function(){
 
     // modal 關閉時 ,影片暫停
     $('.close').click(function(){
+        //原始停止影片
         $('#video_block')[0].pause()
     })
 })
@@ -124,8 +125,23 @@ function call_video(video_id){
                             </video>
                             `
                         )
-                            
+
+    //iframe 會遇到內嵌 block問題                    
+    // $('.modal-body').html(
+    //     `
+    //     <iframe width="100%" height="450" src="${video_str}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen id='player_'></iframe>
+    //     `
+    // ) 
+
     $('#show_video').modal('show');
+
+    // // modal 關閉時 ,iframe影片暫停
+    // $('.close').click(function(){
+    //     //ifram 停止
+    //     $('#player').remove()
+    // })
+
+
     check_loading()
 }
 
