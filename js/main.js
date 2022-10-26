@@ -129,7 +129,7 @@ function call_video(video_id){
     //iframe 會遇到內嵌 block問題                    
     $('.modal-body').append(
         `
-        <iframe width="100%" height="450" src="https://www.youtube.com/embed/OA0Rmt_ZdDM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen id='player_'></iframe>
+        <iframe width="100%" height="450" src="https://www.youtube.com/embed/Io87Rp0O3W4?auyoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen id='player_'></iframe>
         `
     ) 
 
