@@ -364,4 +364,10 @@ var fail_data = [
         img:"../data_img/fail_gif/w_honey_punch.gif",
         audio:`${window.location.origin}/fail_audio/Are_U_serious.mp3` 
     },
+    {      
+        id:7,
+        title:"r_honey_punch ",
+        img:"../data_img/r_honey_punch.gif",
+        audio:`${window.location.origin}/video/Produce.m4a` 
+    },
 ]
