@@ -331,48 +331,48 @@ var fail_data = [
         id:0,
         title:"我喜歡你 ",
         img:`${window.location.origin}/Namin_Card/data_img/fail_gif/punch_long.gif`,
-        audio:`${window.location.origin}/fail_audio/Are_U_serious.mp3` 
+        audio:`${window.location.origin}/Namin_Card/fail_audio/Are_U_serious.mp3` 
     },
     {      
         id:1,
         title:"punch ",
         img:`${window.location.origin}/Namin_Card/data_img/fail_gif/punch.gif`,
-        audio:`${window.location.origin}/fail_audio/Are_U_serious.mp3` 
+        audio:`${window.location.origin}/Namin_Card/fail_audio/Are_U_serious.mp3` 
     },
     {      
         id:2,
         title:"Ur_fail ",
         img:`${window.location.origin}/Namin_Card/data_img/fail_gif/hit.gif`,
-        audio:`${window.location.origin}/fail_audio/Ur_fail.mp3` 
+        audio:`${window.location.origin}/Namin_Card/fail_audio/Ur_fail.mp3` 
     },
     {      
         id:3,
         title:"w_comfort ",
         img:`${window.location.origin}/Namin_Card/data_img/fail_gif/w_comfort.gif`,
-        audio:`${window.location.origin}/fail_audio/Are_U_serious.mp3` 
+        audio:`${window.location.origin}/Namin_Card/fail_audio/Are_U_serious.mp3` 
     },
     {      
         id:4,
         title:"w_heavy_punch ",
         img:`${window.location.origin}/Namin_Card/data_img/fail_gif/w_heavy_punch.gif`,
-        audio:`${window.location.origin}/fail_audio/Are_U_serious.mp3` 
+        audio:`${window.location.origin}/Namin_Card/fail_audio/Are_U_serious.mp3` 
     },
     {      
         id:5,
         title:"w_honey_punch ",
         img:`${window.location.origin}/Namin_Card/data_img/fail_gif/w_honey_punch.gif`,
-        audio:`${window.location.origin}/fail_audio/Are_U_serious.mp3` 
+        audio:`${window.location.origin}/Namin_Card/fail_audio/Are_U_serious.mp3` 
     },
     {      
         id:6,
         title:"r_honey_punch ",
         img:`${window.location.origin}/Namin_Card/data_img/r_honey_punch.gif`,
-        audio:`${window.location.origin}/fail_audio/Ur_fail.mp3` 
+        audio:`${window.location.origin}/Namin_Card/fail_audio/Ur_fail.mp3` 
     },
     {      
         id:7,
         title:"r_honey_punch ",
         img:`${window.location.origin}/Namin_Card/data_img/r_hit.gif`,
-        audio:`${window.location.origin}/fail_audio/Ur_fail.mp3` 
+        audio:`${window.location.origin}/Namin_Card/fail_audio/Ur_fail.mp3` 
     },
 ]
