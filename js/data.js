@@ -331,7 +331,7 @@ var fail_data = [
         id:0,
         title:"我喜歡你 ",
         img:`${window.location.origin}/Namin_Card/data_img/fail_gif/punch_long.gif`,
-        audio:`${window.location.origin}/fail_audio//Are_U_serious.mp33` 
+        audio:`${window.location.origin}/fail_audio/Are_U_serious.mp3` 
     },
     {      
         id:1,
@@ -364,9 +364,15 @@ var fail_data = [
         audio:`${window.location.origin}/fail_audio/Are_U_serious.mp3` 
     },
     {      
-        id:7,
+        id:6,
         title:"r_honey_punch ",
         img:`${window.location.origin}/Namin_Card/data_img/r_honey_punch.gif`,
-        audio:`${window.location.origin}/video/Produce.m4a` 
+        audio:`${window.location.origin}/fail_audio/Ur_fail.mp3` 
+    },
+    {      
+        id:7,
+        title:"r_honey_punch ",
+        img:`${window.location.origin}/Namin_Card/data_img/r_hit.gif`,
+        audio:`${window.location.origin}/fail_audio/Ur_fail.mp3` 
     },
 ]
