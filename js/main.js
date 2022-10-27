@@ -138,7 +138,7 @@ function call_video(video_id){
     // modal 關閉時 ,iframe影片暫停
     $('.close').click(function(){
         //ifram 停止
-        $('#player').remove()
+        $('#player_').remove()
     })
 
 
