@@ -7,7 +7,8 @@ $(function(){
     var rander_img_arr =[]
     for(let i= 0 ; tmp_arr.length < 8 ; i++){
         let rander_math = Math.floor((Math.random()*( data.length - 1 ))+1)
-        if(!tmp_arr.includes(rander_math)){
+        //目前有缺少資料 補上後再移除
+        if(!tmp_arr.includes(rander_math)&& (rander_math > 14 && (rander_math !=18 || rander_math !=19 || rander_math !=29 || rander_math !=32 || rander_math !=39) )){
             tmp_arr.push(rander_math)
             rander_img_arr.push(data[rander_math])
         }
