@@ -1,4 +1,7 @@
 $(function(){
+    //第一次載入時先準備faildata
+    random_fail_audio()
+
     // 抽取 dataAarry 
     var tmp_arr = []
     var rander_img_arr =[]
@@ -168,6 +171,9 @@ function call_fail_audio(audio){
 // 移除 失敗圖片
 function remove_punch(){
     $('.punch').addClass('hide')
+
+    //移除時,先抽取下次失敗時資料
+    random_fail_audio()
 }
 
 // 抓取失敗影片長度 
