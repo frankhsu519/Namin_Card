@@ -102,12 +102,12 @@ $(function(){
             }
         }
     })
-
+    //使用iframe 此段可比不使用
     // modal 關閉時 ,影片暫停
-    $('.close').click(function(){
-        //原始停止影片
-        $('#video_block')[0].pause()
-    })
+    // $('.close').click(function(){
+    //     //原始停止影片
+    //     $('#video_block')[0].pause()
+    // })
 })
 
 // 呼叫成功影片
