@@ -95,7 +95,10 @@ $(function(){
 
                 }else{
                     console.log('失敗');
-                    
+
+                    // // 隨機fail_data
+                    // random_fail_audio()
+
                     //取得音樂資訊
                     var audio = $('#Match_fail');
                     get_duration(audio);
@@ -197,7 +200,7 @@ function random_fail_audio(){
     var fail_audio = fail_data[random_num].audio
     var fail_img = fail_data[random_num].img
     var fail_audio_str = `
-                        <audio id="Match_fail" preload="auto" autoplay="autoplay" muted="" playsinline>
+                        <audio id="Match_fail" preload="auto"  muted="" playsinline>
                             <source src="${fail_audio}" type="audio/mp3" />
                         </audio>
                         `
