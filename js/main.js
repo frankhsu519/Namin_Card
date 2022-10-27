@@ -168,11 +168,6 @@ function call_fail_audio(audio){
 // 移除 失敗圖片
 function remove_punch(){
     $('.punch').addClass('hide')
-    var random_num = Math.floor((Math.random()*(fail_data.length)))
-    var fail_img = fail_data[random_num].img
-    $('#fail_img').attr('src',`${fail_img}`)
-
-
 }
 
 // 抓取失敗影片長度 
@@ -196,10 +191,12 @@ function random_fail_audio(){
     
     var random_num = Math.floor((Math.random()*(fail_data.length)))
     var fail_audio = fail_data[random_num].audio
+    var fail_img = fail_data[random_num].img
     var fail_audio_str = `
                         <audio id="Match_fail" preload="auto" autoplay="autoplay" muted="" playsinline>
                             <source src="${fail_audio}" type="audio/mp3" />
                         </audio>
                         `
     $(".fail_audio").html(fail_audio_str);
+    $('#fail_img').attr('src',`${fail_img}`)
 }
