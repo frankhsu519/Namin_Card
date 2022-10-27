@@ -120,29 +120,29 @@ function call_video(video_id){
     var title_name = data[video_id].title
 
     $('#video_title').text(title_name);
-    $('.modal-body').html(`<video class="video-fluid z-depth-1" controls="controls" autoplay="autoplay" muted="" id="video_block" style='width:100%' preload="auto">
-                                <source src="${video_str}" type="video/mp4">
-                            </video>
-                            `
-                        )
+    // $('.modal-body').html(`<video class="video-fluid z-depth-1" controls="controls" autoplay="autoplay" muted="" id="video_block" style='width:100%' preload="auto">
+    //                             <source src="${video_str}" type="video/mp4">
+    //                         </video>
+    //                         `
+    //                     )
 
     //iframe 會遇到內嵌 block問題                    
-    $('.modal-body').append(
+    $('.modal-body').html(
         `
-        <iframe width="100%" height="450" src="https://www.youtube.com/embed/Io87Rp0O3W4?auyoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen id='player_'></iframe>
+        <iframe width="100%" height="450" src="https://www.youtube.com/embed/${video_str}?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen id='player_'></iframe>
         `
     ) 
 
     $('#show_video').modal('show');
 
-    // // modal 關閉時 ,iframe影片暫停
-    // $('.close').click(function(){
-    //     //ifram 停止
-    //     $('#player').remove()
-    // })
+    // modal 關閉時 ,iframe影片暫停
+    $('.close').click(function(){
+        //ifram 停止
+        $('#player').remove()
+    })
 
 
-    check_loading()
+    // check_loading()
 }
 
 // 確認成功影片loading
