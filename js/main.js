@@ -95,10 +95,7 @@ $(function(){
 
                 }else{
                     console.log('失敗');
-
-                    // 隨機fail_data
-                    random_fail_audio()
-
+                    
                     //取得音樂資訊
                     var audio = $('#Match_fail');
                     get_duration(audio);
