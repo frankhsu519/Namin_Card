@@ -65,7 +65,7 @@ $(function(){
             count++;
             if(count==1){
                 if($(this).hasClass('Selected')){
-                    alert('此牌卡已被翻開了');
+                    alert('此牌卡已被翻開了\n(the card already open )');
                     count--;
                 }else{
                     first_guess = $(this).data('id')
@@ -73,7 +73,7 @@ $(function(){
             }
             else{
                 if($(this).hasClass('Selected')){
-                    alert('不可以重複點擊');
+                    alert('不可以重複點擊\n(you can\'t double click same as 1st click)');
                     count--;
                 }else{
                     second_guess = $(this).data('id')
